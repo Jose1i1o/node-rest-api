@@ -3,9 +3,12 @@ const {
   userController
 } = require("../controllers");
 
+const authMiddleware = require("../middleware")
+
 const userRouter = Router();
 
-userRouter.get("/", userController.getUsers);
+userRouter.use(authMiddleware);
+userRouter.get("/", userController.getUsers, authMiddleware);
 userRouter.patch("/:id", userController.updateUser);
 userRouter.delete("/:id", userController.deleteUser);
 

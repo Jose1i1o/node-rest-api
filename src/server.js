@@ -12,7 +12,7 @@ const {
     // authRouter
 } = require('./routes');
 
-// const errorMiddleware = require("./middleware");
+// const errorMiddleware = require("./middleware/error-middleware");
 const app = express();
 
 app.use(morgan("dev"));

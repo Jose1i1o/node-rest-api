@@ -4,7 +4,7 @@ function seedUsers() {
   return [{
       userName: "Joselito",
       email: "guadix88@mail.com",
-      password: "123456",
+      password: "Lolalaglotona",
       isAdmin: true,
     },
     {

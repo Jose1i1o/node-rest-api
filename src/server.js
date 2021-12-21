@@ -9,29 +9,28 @@ const {
     userRouter,
     personRouter,
     movieRouter,
-    authRouter
+    // authRouter
 } = require('./routes');
 
-const errorMiddleware = require("./middleware/error-middleware");
+// const errorMiddleware = require("./middleware");
 const app = express();
 
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(json());
 
-app.use('/movies', movieRouter);
-app.use('/persons', personRouter);
-app.use('/users', userRouter);
-app.use('/auth', authRouter);
-
 app.get("/", function (req, res) {
     res.status(200).send({
-        author: "Jose Valenzuela",
-        version: "1.0.0",
-        description: "This is a pill to learn how to create a rest API",
+        data: "This is a pill to learn how to create a rest API",
     });
 });
 
-app.use(errorMiddleware);
+app.use('/movies', movieRouter);
+app.use('/persons', personRouter);
+app.use('/users', userRouter);
+// app.use('/auth', authRouter);
+// app.use(errorMiddleware);
+
+
 
 module.exports = app;

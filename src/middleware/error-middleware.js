@@ -1,4 +1,4 @@
-module.exports = (err, req, res, next) => {
+function errorMiddleware(err, req, res, next) {
   console.log("Error Handler Middleware: ");
   console.error(err);
 
@@ -13,4 +13,8 @@ module.exports = (err, req, res, next) => {
     data: null,
     error: "Something went wrong",
   });
+}
+
+module.exports = {
+  errorMiddleware: errorMiddleware,
 };

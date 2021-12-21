@@ -1,58 +1,58 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 const logger = require("loglevel");
 
 dotenv.config();
 
-const {
-  NODE_ENV = 'development',
-    MONGO_DB_URL_PRODUCTION,
-    MONGO_DB_URL_DEVELOPMENT,
-    MONGO_DB_URL_TEST,
-    ACCESS_TOKEN_SECRET,
-    PORT,
-    ENCRYPTION_SALT_DEVELOPMENT,
-    ENCRYPTION_SALT_PRODUCTION,
-} = process.env;
+const ENV = process.env.NODE_ENV || "development";
 
-// const ENV = process.env.NODE_ENV || "development";
-
-// logger.enableAll();
+logger.enableAll();
 
 const CONFIG = {
   production: {
     app: {
-      PORT: PORT || 4000,
+      PORT: process.env.PORT || 4000,
+    },
+    logger: {
+      warn: logger.warn,
+      info: logger.info,
+      error: logger.error,
+      trace: logger.trace,
+      debug: logger.debug,
     },
     db: {
-      url: MONGO_DB_URL_PRODUCTION,
-    },
-    encrypt: {
-      salt: ENCRYPTION_SALT_PRODUCTION,
-      token: ACCESS_TOKEN_SECRET,
+      url: process.env.DB_URL,
     },
   },
   development: {
     app: {
-      PORT: PORT || 4000,
+      PORT: process.env.PORT || 4000,
+    },
+    logger: {
+      warn: logger.warn,
+      info: logger.info,
+      error: logger.error,
+      trace: logger.trace,
+      debug: logger.debug,
     },
     db: {
-      url: MONGO_DB_URL_DEVELOPMENT,
-    },
-    encrypt: {
-      salt: ENCRYPTION_SALT_DEVELOPMENT,
-      token: ACCESS_TOKEN_SECRET,
+      url: process.env.DB_URL,
     },
   },
   test: {
     app: {
-      PORT: PORT || 4000,
+      PORT: process.env.PORT || 4000,
+    },
+    logger: {
+      warn: logger.warn,
+      info: logger.info,
+      error: logger.error,
+      trace: logger.trace,
+      debug: logger.debug,
     },
     db: {
-      url: MONGO_DB_URL_TEST,
+      url: process.env.DB_URL,
     },
   },
 };
 
-module.exports = {
-  config: CONFIG[NODE_ENV],
-};
+module.exports = CONFIG[ENV];

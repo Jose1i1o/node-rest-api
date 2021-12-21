@@ -45,7 +45,7 @@ async function getUsers(req, res, next) {
         const users = await db.User.find();
 
         res.status(200).send({
-            data: users
+            data: users,
         });
     } catch (err) {
         next(err);

@@ -1,9 +1,9 @@
-const db = require('../models');
+// const db = require('../models');
 
-async function authenticate(req, res, next) {
-    console.log('authenticate');
-}
+// async function authenticate(req, res, next) {
+//     console.log('authenticate');
+// }
 
-module.exports = {
-    authenticate: authenticate
-}
+// module.exports = {
+//     authenticate: authenticate
+// }

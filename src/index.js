@@ -2,7 +2,8 @@ const app = require("./server");
 const config = require("./config/config");
 const connect = require("./db/connect");
 
-// uncomment to get the functions to seed the database
+
+// uncomment if you need to seed the database before
 const {
   populateMovies,
   populatePersons,

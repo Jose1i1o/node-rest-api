@@ -26,8 +26,8 @@ app.get("/", function (req, res) {
 });
 
 app.use('/movies', movieRouter);
-app.use('/persons', personRouter);
 app.use('/users', userRouter);
+app.use('/persons', personRouter);
 // app.use('/auth', authRouter);
 // app.use(errorMiddleware);
 

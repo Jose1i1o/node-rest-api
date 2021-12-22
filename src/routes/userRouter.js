@@ -3,7 +3,9 @@ const {
   userController
 } = require("../controllers");
 
-const authMiddleware = require("../middleware")
+const {
+  authMiddleware
+} = require("../middleware")
 
 const userRouter = Router();
 

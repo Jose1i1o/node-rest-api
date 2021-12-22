@@ -2,8 +2,6 @@ const {
     auth
 } = require('../firebase');
 
-`Bearer &{auth_token}`;
-
 async function authMiddleware(req, res, next) {
     if (req.headers.authorization && req.headers.startsWith('Bearer ')) {
         const bearerToken = req.headers.authorization.substr(7);
@@ -30,4 +28,6 @@ async function authMiddleware(req, res, next) {
     }
 }
 
-module.exports = authMiddleware
+module.exports = {
+    authMiddleware: authMiddleware
+}
